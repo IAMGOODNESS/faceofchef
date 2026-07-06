@@ -1,0 +1,515 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Face of a Chef - Food Fair 2026</title>
+    <!-- Tailwind CSS CDN -->
+    <script src="https://cdn.tailwindcss.com"></script>
+    <!-- Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Cabinet+Grotesk:wght@700;800&family=Plus+Jakarta+Sans:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- FontAwesome for Icons -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Plus Jakarta Sans', 'sans-serif'],
+                        display: ['Cabinet Grotesk', 'sans-serif'],
+                    },
+                    colors: {
+                        brand: {
+                            dark: '#0B0B0C',
+                            surface: '#121214',
+                            card: '#1A1A1E',
+                            red: '#D61C24',
+                            gold: '#D4AF37',
+                            goldLight: '#F3E5AB'
+                        }
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .gold-gradient-text {
+            background: linear-gradient(135deg, #FFF 30%, #D4AF37 70%, #F3E5AB 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        /* Carousel Fade Styles */
+        .carousel-slide {
+            transition: opacity 1.5s ease-in-out;
+            opacity: 0;
+        }
+        .carousel-slide.active {
+            opacity: 1;
+        }
+
+        /* Gallery Hover Effects */
+        .gallery-item img {
+            transition: transform 0.7s ease;
+        }
+        .gallery-item:hover img {
+            transform: scale(1.08);
+        }
+        .gallery-overlay {
+            background: linear-gradient(to top, rgba(11, 11, 12, 0.9) 0%, transparent 50%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+        }
+        .gallery-item:hover .gallery-overlay {
+            opacity: 1;
+        }
+    </style>
+</head>
+<body class="bg-brand-dark text-gray-200 font-sans antialiased selection:bg-brand-red selection:text-white">
+
+    <!-- Header Navigation -->
+    <header class="fixed top-0 left-0 w-full z-50 bg-brand-dark/80 backdrop-blur-md border-b border-white/5">
+        <div class="max-w-7xl mx-auto px-6 h-20 flex items-center justify-between">
+            <div class="flex items-center space-x-3">
+                <img src="logo2.jpeg" alt="Switch Digital Production Enterprise" class="h-12 w-auto object-contain">
+                <div class="hidden sm:block leading-tight border-l border-white/10 pl-3">
+                    <span class="block font-display font-bold text-white tracking-wide text-xs">SWITCH DIGITAL</span>
+                    <span class="block text-[9px] text-gray-400 uppercase tracking-widest">Production Enterprise</span>
+                </div>
+            </div>
+            <nav class="hidden lg:flex items-center space-x-6 text-xs font-medium uppercase tracking-wider text-gray-400">
+                <a href="#about" class="hover:text-white transition-colors">About</a>
+                <a href="#gallery" class="hover:text-white transition-colors">Gallery</a>
+                <a href="#sponsorship" class="hover:text-white transition-colors">Sponsorship</a>
+                <a href="#founders" class="hover:text-white transition-colors">Leadership</a>
+            </nav>
+            <div class="flex items-center gap-4">
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScitsmGOrqxASg4fw0IEGaW7MuOVV0AvlsI5fu9j7hVWE9rLA/viewform?usp=sharing&ouid=101757719513992254827" class="bg-brand-red hover:bg-red-700 text-white font-semibold text-xs uppercase tracking-wider px-5 py-2.5 rounded-full transition-all duration-300 shadow-lg shadow-brand-red/20 hover:scale-[1.02]">
+                    Register Now
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section (Now with Carousel Background & Overlays) -->
+    <section class="relative pt-32 pb-20 lg:pt-40 lg:pb-32 overflow-hidden min-h-[90vh] flex items-center">
+        <!-- Background Hero Carousel -->
+        <div class="hero-slide active absolute inset-0 z-0">
+            <img src="logo.jpeg" alt="Culinary Execution Showcase" class="w-full h-full object-cover">
+        </div>
+        <div class="hero-slide absolute inset-0 z-0">
+            <img src="img2.jpeg" alt="Chef Portrait" class="w-full h-full object-cover object-top">
+        </div>
+        <div class="hero-slide absolute inset-0 z-0">
+            <img src="img3.jpeg" alt="Team at Event" class="w-full h-full object-cover">
+        </div>
+
+        <!-- Gradients to ensure text readability -->
+        <div class="absolute inset-0 bg-brand-dark/70 z-10 lg:hidden"></div>
+        <div class="absolute inset-0 bg-gradient-to-r from-brand-dark via-brand-dark/90 to-brand-dark/20 z-10 hidden lg:block"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark to-transparent z-10"></div>
+
+        <div class="max-w-7xl mx-auto px-6 relative z-20 w-full">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                
+                <!-- Left Content Column -->
+                <div class="lg:col-span-7 space-y-6 text-center lg:text-left">
+                    <div class="inline-flex items-center gap-2 bg-white/10 backdrop-blur-md border border-white/20 px-4 py-1.5 rounded-full text-xs font-semibold text-brand-gold">
+                        <i class="fa-solid fa-crown text-[10px]"></i> Switch Digital Presents
+                    </div>
+                    <h1 class="text-5xl sm:text-7xl font-display font-extrabold tracking-tight text-white leading-[1.05]">
+                        FACE OF A <br>
+                        <span class="gold-gradient-text">CHEF</span>
+                        <span class="text-brand-red">.</span>
+                    </h1>
+                    <p class="text-xl sm:text-2xl font-medium text-white/90 font-display uppercase tracking-widest drop-shadow-md">
+                        Food Fair 2026
+                    </p>
+                    <p class="text-gray-300 max-w-xl mx-auto lg:mx-0 text-base sm:text-lg leading-relaxed font-medium">
+                        “Celebrating Culinary Excellence, Food Innovation and Cultural Heritage.” Join Africa's premier culinary recognition and development platform.
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-4 pt-4 justify-center lg:justify-start">
+                        <div class="bg-black/40 backdrop-blur-md border border-white/10 rounded-2xl p-4 flex items-center gap-4 min-w-[200px]">
+                            <div class="w-12 h-12 rounded-xl bg-brand-gold/20 flex items-center justify-center text-brand-gold text-lg">
+                                <i class="fa-solid fa-calendar-days"></i>
+                            </div>
+                            <div>
+                                <p class="text-xs text-gray-400">Date</p>
+                                <p class="text-sm font-bold text-white">27th – 29th Aug 2026</p>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="pt-4 flex flex-col sm:flex-row items-center gap-4 justify-center lg:justify-start">
+                        <a href="https://docs.google.com/forms/d/e/1FAIpQLScitsmGOrqxASg4fw0IEGaW7MuOVV0AvlsI5fu9j7hVWE9rLA/viewform?usp=sharing&ouid=101757719513992254827" class="bg-brand-red hover:bg-red-700 text-white font-bold px-8 py-4 rounded-xl transition-all duration-300 shadow-xl shadow-brand-red/30 hover:translate-y-[-2px] w-full sm:w-auto text-center">
+                            Secure Your Slot
+                        </a>
+                        <a href="#sponsorship" class="bg-black/50 backdrop-blur-md hover:bg-black/70 border border-white/20 text-white font-medium px-8 py-4 rounded-xl transition-all text-center w-full sm:w-auto">
+                            Sponsorship Plans
+                        </a>
+                    </div>
+                </div>
+
+                <!-- Right Visual Column (Featured Venue with Image Restored) -->
+                <div class="lg:col-span-5 relative hidden md:block">
+                    <div class="relative mx-auto lg:max-w-sm group lg:ml-auto">
+                        <!-- Glowing backdrop effect -->
+                        <div class="absolute inset-0 bg-brand-red rounded-3xl rotate-3 scale-[1.02] opacity-40 group-hover:rotate-1 transition-transform duration-500 blur-sm"></div>
+                        <!-- Card Content -->
+                        <div class="relative bg-brand-card/90 backdrop-blur-xl p-3 rounded-3xl border border-white/20 shadow-2xl overflow-hidden">
+                            <!-- Venue Image -->
+                            <div class="relative rounded-2xl overflow-hidden mb-4 group-hover:shadow-lg transition-all duration-500">
+                                <img src="acccipicture.jpg" alt="ACCI Venue Showcase" class="w-full h-[240px] object-cover filter brightness-90 group-hover:scale-105 transition-transform duration-700">
+                                <!-- Location Badge -->
+                                <div class="absolute top-3 right-3 bg-brand-dark/80 backdrop-blur-md px-3 py-1.5 rounded-full border border-white/10 flex items-center gap-2">
+                                    <i class="fa-solid fa-location-dot text-brand-red text-xs"></i>
+                                    <span class="text-[10px] font-bold text-white uppercase tracking-widest">Abuja</span>
+                                </div>
+                            </div>
+                            <!-- Venue Details -->
+                            <div class="px-3 pb-3 space-y-1.5">
+                                <span class="text-[10px] font-bold uppercase tracking-widest text-brand-gold block">Featured Venue</span>
+                                <h3 class="text-white font-bold text-base leading-snug">
+                                    Abuja Chamber of Commerce and Industry (ACCI)
+                                </h3>
+                                <p class="text-gray-400 text-xs">
+                                    Umaru Musa Yar'Adua way, Abuja, Nigeria.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </section>
+
+    <!-- About / Executive Summary Section -->
+    <section id="about" class="py-20 bg-brand-surface border-t border-white/5 relative z-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid lg:grid-cols-12 gap-12 items-center">
+                <div class="lg:col-span-5">
+                    <div class="relative rounded-3xl overflow-hidden border border-white/10 group">
+                        <img src="img3.jpeg
+                        " alt="Professional Culinary Accent" class="w-full h-[400px] object-cover transform scale-100 group-hover:scale-105 transition-transform duration-700">
+                        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-transparent"></div>
+                    </div>
+                </div>
+                <div class="lg:col-span-7 space-y-6">
+                    <span class="text-xs font-bold uppercase tracking-widest text-brand-red">Letter From The Founders</span>
+                    <h2 class="text-3xl sm:text-4xl font-display font-bold text-white">Driving Economic Growth Through Culinary Excellence</h2>
+                    <p class="text-gray-400 text-sm sm:text-base leading-relaxed">
+                        Across the continent, the culinary sector has evolved beyond food preparation into a powerful economic driver that supports tourism, entrepreneurship, job creation, cultural preservation, and community development. Face of a Chef was conceived directly in response to the growing need for credible networks that bridge talent with strategic commercial investments.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Visual Gallery Section -->
+    <section id="gallery" class="py-20 bg-brand-dark border-t border-white/5 relative z-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="flex flex-col md:flex-row md:items-end justify-between mb-12 gap-6">
+                <div>
+                    <span class="text-xs font-bold uppercase tracking-widest text-brand-gold">Experience The Vibe</span>
+                    <h2 class="text-3xl sm:text-4xl font-display font-bold text-white mt-2">Event Highlights & Gallery</h2>
+                </div>
+                <p class="text-gray-400 text-sm max-w-md">A glimpse into the heat of the kitchen, the elegance of our showcases, and the elite minds driving the culinary evolution.</p>
+            </div>
+
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-4 auto-rows-[250px] md:auto-rows-[300px]">
+                <div class="gallery-item relative md:col-span-2 md:row-span-2 rounded-2xl overflow-hidden cursor-pointer group border border-white/5">
+                    <img src="vote1.jpeg" alt="Chefs in Action" class="w-full h-full object-cover">
+                    <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-6">
+                        <span class="text-brand-gold text-[10px] font-bold uppercase tracking-widest mb-1">Live Action</span>
+                        <h3 class="text-white font-bold text-lg">The Heat of the Kitchen</h3>
+                    </div>
+                </div>
+                <div class="gallery-item relative rounded-2xl overflow-hidden cursor-pointer group md:col-span-2 border border-white/5">
+                    <img src="vote2.jpeg" alt="Chef Portrait" class="w-full h-full object-cover object-top">
+                    <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-6">
+                        <span class="text-brand-red text-[10px] font-bold uppercase tracking-widest mb-1">Elite Talent</span>
+                        <h3 class="text-white font-bold text-lg">Culinary Precision</h3>
+                    </div>
+                </div>
+                <div class="gallery-item relative rounded-2xl overflow-hidden cursor-pointer group border border-white/5">
+                    <img src="vote3.jpeg" alt="Leadership Team" class="w-full h-full object-cover">
+                    <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-6">
+                        <span class="text-brand-gold text-[10px] font-bold uppercase tracking-widest mb-1">Leadership</span>
+                        <h3 class="text-white font-bold text-lg">The Visionaries</h3>
+                    </div>
+                </div>
+                <div class="gallery-item relative rounded-2xl overflow-hidden cursor-pointer group border border-white/5">
+                    <img src="vote4.jpeg" alt="Gourmet Plating" class="w-full h-full object-cover">
+                    <div class="gallery-overlay absolute inset-0 flex flex-col justify-end p-6">
+                        <span class="text-gray-300 text-[10px] font-bold uppercase tracking-widest mb-1">Masterclass</span>
+                        <h3 class="text-white font-bold text-lg">Gourmet Execution</h3>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upgraded Sponsorship Section -->
+    <section id="sponsorship" class="py-20 bg-brand-surface border-y border-white/5 relative z-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="text-center max-w-2xl mx-auto mb-16">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-gold">Corporate Investment Prospectus</span>
+                <h2 class="text-3xl sm:text-4xl font-display font-bold text-white mt-2">Tiered Sponsorship Options</h2>
+                <p class="text-gray-400 text-sm mt-4">Align your brand with Africa's fastest-growing culinary excellence platform.</p>
+            </div>
+
+            <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 items-stretch mb-12">
+                <!-- Silver -->
+                <div class="bg-brand-card p-6 rounded-2xl border border-white/5 flex flex-col justify-between hover:-translate-y-2 hover:border-gray-500 transition-all duration-300 cursor-pointer group">
+                    <div>
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-gray-400 block mb-1 group-hover:text-white transition-colors">Silver Package</span>
+                        <div class="text-2xl font-display font-bold text-white mb-4">₦2,500,000</div>
+                        <p class="text-xs text-gray-400 mb-6">Designed for emerging brands seeking fundamental visibility thresholds.</p>
+                    </div>
+                    <ul class="space-y-3 text-xs text-gray-300 border-t border-white/5 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gray-500"></i> Selected logo placements</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-gray-500"></i> Standard exhibition booth</li>
+                    </ul>
+                </div>
+
+                <!-- Gold -->
+                <div class="bg-brand-card p-6 rounded-2xl border border-white/5 flex flex-col justify-between hover:-translate-y-2 hover:border-brand-gold hover:shadow-lg hover:shadow-brand-gold/10 transition-all duration-300 cursor-pointer group">
+                    <div>
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-brand-gold block mb-1">Gold Package</span>
+                        <div class="text-2xl font-display font-bold text-white mb-4">₦5,000,000</div>
+                        <p class="text-xs text-gray-400 mb-6">Suitable for active brands seeking strong promotional reach indexes.</p>
+                    </div>
+                    <ul class="space-y-3 text-xs text-gray-300 border-t border-white/5 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-gold"></i> Expanded screen branding</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-brand-gold"></i> Social media promo inclusions</li>
+                    </ul>
+                </div>
+
+                <!-- Platinum -->
+                <div class="bg-brand-card p-6 rounded-2xl border border-white/5 flex flex-col justify-between hover:-translate-y-2 hover:border-slate-300 hover:shadow-lg hover:shadow-slate-300/10 transition-all duration-300 cursor-pointer group">
+                    <div>
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-slate-300 block mb-1">Platinum Package</span>
+                        <div class="text-2xl font-display font-bold text-white mb-4">₦10,000,000</div>
+                        <p class="text-xs text-gray-400 mb-6">High-tier alignment option for enterprise corporate operators.</p>
+                    </div>
+                    <ul class="space-y-3 text-xs text-gray-300 border-t border-white/5 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-slate-300"></i> Premium logo positions</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-check text-slate-300"></i> Custom pavilion setup</li>
+                    </ul>
+                </div>
+
+                <!-- Title Sponsor -->
+                <div class="bg-gradient-to-b from-brand-card to-brand-surface p-6 rounded-2xl border-2 border-brand-red flex flex-col justify-between relative shadow-xl hover:-translate-y-2 hover:shadow-brand-red/20 transition-all duration-300 cursor-pointer">
+                    <span class="absolute top-0 right-4 -translate-y-1/2 bg-brand-red text-white text-[9px] font-extrabold px-2.5 py-0.5 rounded-full tracking-widest uppercase shadow-lg shadow-brand-red/50">Exclusive</span>
+                    <div>
+                        <span class="text-[10px] font-bold uppercase tracking-wider text-brand-red block mb-1">Title Sponsor</span>
+                        <div class="text-2xl font-display font-bold text-white mb-4">₦20,000,000</div>
+                        <p class="text-xs text-gray-400 mb-6">Maximum domain presence granted strictly to a single visionary brand entity.</p>
+                    </div>
+                    <ul class="space-y-3 text-xs text-gray-200 border-t border-white/10 pt-4">
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-crown text-brand-red"></i> Official Naming Rights</li>
+                        <li class="flex items-center gap-2"><i class="fa-solid fa-shield text-brand-red"></i> Category Exclusivity</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upgraded Executive Leadership Section -->
+    <section id="founders" class="py-20 bg-brand-dark border-t border-white/5 relative z-20">
+        <div class="max-w-6xl mx-auto px-6 text-center space-y-12">
+            <div class="space-y-2 max-w-2xl mx-auto">
+                <span class="text-xs font-bold uppercase tracking-widest text-brand-red block">Leadership Architecture</span>
+                <h2 class="text-3xl font-display font-bold text-white">The Visionaries Behind The Fair</h2>
+                <p class="text-sm text-gray-400 mt-3">Driven by passion, the Switch Digital leadership team is committed to redefining the culinary landscape through strategic innovation.</p>
+            </div>
+            
+            <div class="grid lg:grid-cols-12 gap-12 items-center text-left">
+                <!-- Live Field Image -->
+                <div class="lg:col-span-5">
+                    <div class="bg-brand-card p-3 rounded-3xl border border-white/10 shadow-2xl relative">
+                        <div class="absolute inset-0 bg-brand-gold opacity-10 blur-xl rounded-3xl"></div>
+                        <img src="founder.jpeg" alt="Switch Digital Executive Team" class="w-full h-[400px] object-cover rounded-2xl filter brightness-95 relative z-10">
+                    </div>
+                </div>
+                
+                <!-- Founder Cards -->
+                <div class="lg:col-span-7 space-y-6">
+                    <div class="group bg-brand-card/50 hover:bg-brand-card border border-white/5 hover:border-white/10 p-8 rounded-3xl transition-all duration-300">
+                        <div class="flex items-center gap-4 mb-3">
+                            <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center border border-white/10">
+                                <i class="fa-solid fa-user-tie text-brand-gold text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-xl">Innocent Vincent Otuonye</h4>
+                                <span class="text-xs text-brand-gold uppercase tracking-wider font-medium">Founder & Project Director</span>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-400 leading-relaxed">Directs the macro creative vision, industrial ecosystem stakeholder mapping strategies, and long-term corporate growth expansion frameworks.</p>
+                    </div>
+
+                    <div class="group bg-brand-card/50 hover:bg-brand-card border border-white/5 hover:border-white/10 p-8 rounded-3xl transition-all duration-300">
+                        <div class="flex items-center gap-4 mb-3">
+                            <div class="w-12 h-12 rounded-full bg-white/5 flex items-center justify-center border border-white/10">
+                                <i class="fa-solid fa-users-gear text-brand-red text-lg"></i>
+                            </div>
+                            <div>
+                                <h4 class="text-white font-bold text-xl">Bassey Ubong <span class="text-xs text-gray-500 font-normal ml-2">(@Paiunites)</span></h4>
+                                <span class="text-xs text-brand-red uppercase tracking-wider font-medium">Co-Founder & Operations Director</span>
+                            </div>
+                        </div>
+                        <p class="text-sm text-gray-400 leading-relaxed">Oversees structural deployment blueprints, resource procurement channels, logistics coordination, and on-ground project lifecycle execution.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upgraded CTA (Lighter Overlay) -->
+    <section id="register" class="relative py-32 lg:py-48 flex items-center justify-center overflow-hidden bg-brand-dark">
+        <!-- Background Carousel Images -->
+        <div class="cta-slide active absolute inset-0 z-0">
+            <img src="logo.jpeg" alt="Cooking action" class="w-full h-full object-cover">
+        </div>
+        <div class="cta-slide absolute inset-0 z-0">
+            <img src="img2.jpeg" alt="Chef Portrait" class="w-full h-full object-cover object-top">
+        </div>
+        <div class="cta-slide absolute inset-0 z-0">
+            <img src="img1.jpeg" alt="Culinary Crowd" class="w-full h-full object-cover">
+        </div>
+
+        <!-- LIGHTER OVERLAY to let the images pop -->
+        <div class="absolute inset-0 bg-brand-dark/40 backdrop-blur-[1px] z-10"></div>
+        <div class="absolute inset-0 bg-gradient-to-t from-brand-dark via-transparent to-brand-dark/30 z-10"></div>
+
+        <!-- Content -->
+        <div class="relative z-20 max-w-3xl mx-auto px-6 text-center space-y-8 bg-brand-dark/50 p-8 sm:p-12 rounded-3xl backdrop-blur-md border border-white/10 shadow-2xl">
+            <div class="inline-flex items-center gap-2 bg-white/20 backdrop-blur-lg border border-white/30 px-5 py-2 rounded-full text-xs font-bold text-white uppercase tracking-widest shadow-lg">
+                <i class="fa-solid fa-fire text-brand-red"></i> The Arena is Open
+            </div>
+            
+            <h2 class="text-4xl sm:text-6xl font-display font-extrabold text-white leading-tight drop-shadow-lg">
+                Ready to Claim Your <span class="gold-gradient-text">Spot?</span>
+            </h2>
+            
+            <p class="text-white/90 text-lg sm:text-xl font-medium max-w-2xl mx-auto leading-relaxed drop-shadow">
+                Skip the lines and secure your registration, vendor booth, or sponsorship tier directly through our official application portal.
+            </p>
+
+            <div class="flex flex-col sm:flex-row items-center justify-center gap-5 pt-6">
+                <!-- Replace 'YOUR_GOOGLE_FORM_LINK_HERE' with the actual link -->
+                <a href="https://docs.google.com/forms/d/e/1FAIpQLScitsmGOrqxASg4fw0IEGaW7MuOVV0AvlsI5fu9j7hVWE9rLA/viewform?usp=sharing&ouid=101757719513992254827" target="_blank" rel="noopener noreferrer" class="group relative inline-flex items-center justify-center gap-3 bg-brand-red hover:bg-red-700 text-white font-bold text-sm sm:text-base px-8 py-5 rounded-2xl transition-all duration-300 shadow-2xl shadow-brand-red/50 hover:-translate-y-1 w-full sm:w-auto border border-red-500/50">
+                    <span>Proceed to Official Registration</span>
+                    <i class="fa-solid fa-arrow-up-right-from-square text-white/70 group-hover:text-white transition-colors"></i>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Upgraded Beautiful Footer -->
+    <footer class="bg-brand-surface pt-20 pb-10 border-t border-white/5 relative z-20">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-16">
+                
+                <!-- Column 1: Branding -->
+                <div class="space-y-6">
+                    <div class="flex items-center space-x-3">
+                        <img src="logo2.jpeg" alt="Switch Digital Logo" class="h-14 w-auto object-contain bg-white/5 p-2 rounded-lg border border-white/10">
+                    </div>
+                    <p class="text-sm text-gray-400 leading-relaxed">
+                        Switch Digital Production Enterprise is a leading multimedia and event architecture firm driving impactful commercial networks across the continent.
+                    </p>
+                </div>
+
+                <!-- Column 2: Quick Links -->
+                <div>
+                    <h4 class="text-white font-bold uppercase tracking-wider text-xs mb-6">Quick Links</h4>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <li><a href="#about" class="hover:text-brand-gold transition-colors">About The Fair</a></li>
+                        <li><a href="#gallery" class="hover:text-brand-gold transition-colors">Event Gallery</a></li>
+                        <li><a href="#sponsorship" class="hover:text-brand-gold transition-colors">Sponsorship Matrix</a></li>
+                        <li><a href="#founders" class="hover:text-brand-gold transition-colors">Leadership Team</a></li>
+                    </ul>
+                </div>
+
+                <!-- Column 3: Contact Info -->
+                <div>
+                    <h4 class="text-white font-bold uppercase tracking-wider text-xs mb-6">Contact Us</h4>
+                    <ul class="space-y-4 text-sm text-gray-400">
+                        <li class="flex items-start gap-3">
+                            <i class="fa-solid fa-location-dot mt-1 text-brand-red"></i>
+                            <span>Abuja Chamber of Commerce and Industry (ACCI), Abuja, Nigeria.</span>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone text-brand-red"></i>
+                            <a href="tel:+2349167704195" class="hover:text-white transition-colors">+234 916 770 4195</a>
+                        </li>
+                        <li class="flex items-center gap-3">
+                            <i class="fa-solid fa-phone text-brand-red"></i>
+                            <a href="tel:+2349030835090" class="hover:text-white transition-colors">+234 903 083 5090</a>
+                        </li>
+                    </ul>
+                </div>
+
+                <!-- Column 4: Support & Social -->
+                <div>
+                    <h4 class="text-white font-bold uppercase tracking-wider text-xs mb-6">Connect</h4>
+                    <a href="https://wa.me/2349030835090" target="_blank" class="inline-flex items-center gap-2 bg-white/5 hover:bg-white/10 border border-white/10 text-white text-sm px-5 py-3 rounded-xl transition-all duration-300 mb-6 w-full justify-center">
+                        <i class="fa-brands fa-whatsapp text-emerald-500 text-lg"></i> WhatsApp Support
+                    </a>
+                    <div class="flex items-center gap-4">
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:bg-brand-red hover:border-brand-red transition-all duration-300">
+                            <i class="fa-brands fa-instagram"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:bg-brand-red hover:border-brand-red transition-all duration-300">
+                            <i class="fa-brands fa-twitter"></i>
+                        </a>
+                        <a href="#" class="w-10 h-10 rounded-full bg-white/5 border border-white/10 flex items-center justify-center text-gray-400 hover:text-white hover:bg-brand-red hover:border-brand-red transition-all duration-300">
+                            <i class="fa-brands fa-linkedin-in"></i>
+                        </a>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Copyright Banner -->
+            <div class="pt-8 border-t border-white/10 flex flex-col md:flex-row items-center justify-between gap-4 text-xs text-gray-500">
+                <p>&copy; 2026 Switch Digital Production Enterprise. All Rights Reserved.</p>
+                <div class="flex items-center gap-4">
+                    <a href="#" class="hover:text-white transition-colors">Privacy Policy</a>
+                    <a href="#" class="hover:text-white transition-colors">Terms of Service</a>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Carousel Javascript -->
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            // Function to handle carousels independently
+            function initCarousel(slideSelector, interval) {
+                const slides = document.querySelectorAll(slideSelector);
+                let currentSlide = 0;
+
+                if(slides.length > 0) {
+                    setInterval(() => {
+                        slides[currentSlide].classList.remove('active');
+                        currentSlide = (currentSlide + 1) % slides.length;
+                        slides[currentSlide].classList.add('active');
+                    }, interval); 
+                }
+            }
+
+            // Initialize Hero Carousel
+            initCarousel('.hero-slide', 5000); // 5 seconds
+            // Initialize CTA Carousel
+            initCarousel('.cta-slide', 4000); // 4 seconds
+        });
+    </script>
+</body>
+</html>
