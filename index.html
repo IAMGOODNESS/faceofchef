@@ -66,6 +66,17 @@
         .gallery-item:hover .gallery-overlay {
             opacity: 1;
         }
+        .hero-slide, .cta-slide {
+        transition: opacity 1.5s ease-in-out;
+        opacity: 0;
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+    }
+    .hero-slide.active, .cta-slide.active {
+        opacity: 1;
     </style>
 </head>
 <body class="bg-brand-dark text-gray-200 font-sans antialiased selection:bg-brand-red selection:text-white">
@@ -318,6 +329,23 @@
                 </div>
             </div>
         </div>
+        <div class="mt-12 bg-brand-card/30 p-8 rounded-3xl border border-white/10 text-center max-w-3xl mx-auto">
+    <h3 class="text-xl font-display font-bold text-white mb-4">Ready to Partner With Us?</h3>
+    <p class="text-gray-400 text-sm mb-6">Enter your name and select the package you are interested in, then click the button to message us on WhatsApp.</p>
+    
+    <div class="flex flex-col sm:flex-row gap-4 justify-center items-center">
+        <input type="text" id="partnerName" placeholder="Your Name" class="bg-brand-dark border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-gold w-full sm:w-48">
+        <select id="packageSelect" class="bg-brand-dark border border-white/10 rounded-xl px-4 py-3 text-white focus:outline-none focus:border-brand-gold w-full sm:w-48">
+            <option value="Silver">Silver Package</option>
+            <option value="Gold">Gold Package</option>
+            <option value="Platinum">Platinum Package</option>
+            <option value="Title">Title Sponsor</option>
+        </select>
+        <button onclick="sendWhatsApp()" class="bg-brand-gold hover:bg-yellow-600 text-black font-bold px-8 py-3 rounded-xl transition-all duration-300 w-full sm:w-auto">
+            Partner Now
+        </button>
+    </div>
+</div>
     </section>
 
     <!-- Upgraded Executive Leadership Section -->
@@ -489,27 +517,40 @@
     </footer>
 
     <!-- Carousel Javascript -->
-    <script>
-        document.addEventListener('DOMContentLoaded', () => {
-            // Function to handle carousels independently
-            function initCarousel(slideSelector, interval) {
-                const slides = document.querySelectorAll(slideSelector);
-                let currentSlide = 0;
+   <script>
+    // 1. Ensure the Carousel logic and WhatsApp logic work together
+    document.addEventListener('DOMContentLoaded', () => {
+        
+        // Carousel Function
+        function initCarousel(slideSelector, interval) {
+            const slides = document.querySelectorAll(slideSelector);
+            if(slides.length === 0) return;
+            
+            // Ensure at least one slide is visible
+            slides[0].classList.add('active');
+            
+            let currentSlide = 0;
+            setInterval(() => {
+                slides[currentSlide].classList.remove('active');
+                currentSlide = (currentSlide + 1) % slides.length;
+                slides[currentSlide].classList.add('active');
+            }, interval); 
+        }
 
-                if(slides.length > 0) {
-                    setInterval(() => {
-                        slides[currentSlide].classList.remove('active');
-                        currentSlide = (currentSlide + 1) % slides.length;
-                        slides[currentSlide].classList.add('active');
-                    }, interval); 
-                }
-            }
+        
+        initCarousel('.hero-slide', 5000);
+        initCarousel('.cta-slide', 4000);
+    });
 
-            // Initialize Hero Carousel
-            initCarousel('.hero-slide', 5000); // 5 seconds
-            // Initialize CTA Carousel
-            initCarousel('.cta-slide', 4000); // 4 seconds
-        });
-    </script>
+    // 2. WhatsApp Function
+    function sendWhatsApp() {
+        const name = document.getElementById('partnerName').value || "someone";
+        const pkg = document.getElementById('packageSelect').value;
+        const phone = "2349030835090"; 
+        const message = `Hi, my name is ${name} and I would love to partner with the ${pkg} package.`;
+        const url = `https://wa.me/${phone}?text=${encodeURIComponent(message)}`;
+        window.open(url, '_blank');
+    }
+</script>
 </body>
 </html>
